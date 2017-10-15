@@ -13,10 +13,12 @@ namespace ChatRoom_POC.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MessageID { get; set; }
 
+        [Column]
         public int ChatRoomID { get; set; }
         [ForeignKey("ChatRoomID")]
         public virtual ChatRoom ChatRoom { get; set; }
 
+        [Column]
         public int CreatedByID { get; set; }
         [ForeignKey("CreatedByID")]
         public virtual User CreatedBy { get; set; }

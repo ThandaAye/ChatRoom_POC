@@ -10,10 +10,8 @@ namespace ChatRoom_POC.Models
     public class Admin: User
     {
         [EmailAddress]
-        [Column]
         public string Email { get; set; }
 
-        [Column]
         public UserStatus UserStatus { get; set; }
     }
 }

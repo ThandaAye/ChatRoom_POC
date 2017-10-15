@@ -12,11 +12,13 @@ namespace ChatRoom_POC.Controllers
     {
         public ActionResult Index()
         {
+            // create user
             //ChatRoomContext context = new ChatRoomContext();
             //User user = new User();
-            //user.Username = "Thanda Aye";
+            //user.Username = "thanda aye";
             //context.User.Add(user);
 
+            // create admin
             //Admin admin = new Admin();
             //admin.Username = "Thet Min Ko";
             //admin.Email = "dev.minko@gmail.com";
@@ -27,18 +29,17 @@ namespace ChatRoom_POC.Controllers
 
         public ActionResult About()
         {
+            // create chatroom
             //ChatRoomContext context = new ChatRoomContext();
-            //User user = context.User.Find(1);
-            //ViewBag.Message = user.GetType();
             //ChatRoom chatRoom = new ChatRoom();
-            //chatRoom.User = user;
+            //chatRoom.Owner = context.User.Find(1);
             //context.ChatRoom.Add(chatRoom);
             //context.SaveChanges();
 
-            ChatRoomContext context = new ChatRoomContext();
-            User user = context.User.Find(1);
-            ChatRoom chatRoom = context.ChatRoom.Where(x => x.OwnerID == user.UserID).FirstOrDefault();
-            ViewBag.Something = chatRoom.Messages.ToString();
+            // User user = context.User.Find(1);
+            // ViewBag.Something = user.ChatRoom.Messages;
+            //ChatRoom chatRoom = context.ChatRoom.Where(x => x.Owner == user).FirstOrDefault();
+            //ViewBag.Something = chatRoom.Messages.ToString();
 
             //ChatRoom chatRoom = context.ChatRoom.Find(1);
             //ViewBag.Message = chatRoom.Messages;

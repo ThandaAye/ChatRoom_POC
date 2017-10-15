@@ -16,7 +16,5 @@ namespace ChatRoom_POC.Models
         [Column]
         [StringLength(255)]
         public String Username { get; set; }
-
-        public Nullable<int> ChatRoomID { get; set; }
     }
 }
