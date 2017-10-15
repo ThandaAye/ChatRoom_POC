@@ -12,13 +12,24 @@ namespace ChatRoom_POC.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MessageID { get; set; }
-        [Column]
+
         public int ChatRoomID { get; set; }
         [ForeignKey("ChatRoomID")]
-        public ChatRoom chatRoom { get; set; }
-        //[Column]
-        public int? CreatedByID { get; set; }
+        public virtual ChatRoom ChatRoom { get; set; }
+
+        public int CreatedByID { get; set; }
         [ForeignKey("CreatedByID")]
-        public User CreatedBy { get; set; }
+        public virtual User CreatedBy { get; set; }
+
+        [Required(AllowEmptyStrings = false)]
+        [StringLength(10000000)]
+        public string Value { get; set; }
+
+        public virtual ICollection<MessageReaction> MessageReactions { get; set; }
+
+        public override string ToString()
+        {
+            return "id: " + MessageID + " value: " + Value;
+        }
     }
 }

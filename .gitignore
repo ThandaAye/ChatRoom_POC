@@ -1,2 +1,5 @@
 .vs
+*/Migrations/*
+*/bin/*
+/obj/*
 packages

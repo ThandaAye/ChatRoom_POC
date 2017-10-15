@@ -12,8 +12,11 @@ namespace ChatRoom_POC.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserID { get; set; }
+
         [Column]
         [StringLength(255)]
         public String Username { get; set; }
+
+        public Nullable<int> ChatRoomID { get; set; }
     }
 }

@@ -27,23 +27,35 @@ namespace ChatRoom_POC.Controllers
 
         public ActionResult About()
         {
+            //ChatRoomContext context = new ChatRoomContext();
+            //User user = context.User.Find(1);
+            //ViewBag.Message = user.GetType();
+            //ChatRoom chatRoom = new ChatRoom();
+            //chatRoom.User = user;
+            //context.ChatRoom.Add(chatRoom);
+            //context.SaveChanges();
+
             ChatRoomContext context = new ChatRoomContext();
             User user = context.User.Find(1);
-            ViewBag.Message = user.GetType();
-            ChatRoom chatRoom = new ChatRoom();
-            chatRoom.User = user;
-            context.ChatRoom.Add(chatRoom);
-            context.SaveChanges();
+            ChatRoom chatRoom = context.ChatRoom.Where(x => x.OwnerID == user.UserID).FirstOrDefault();
+            ViewBag.Something = chatRoom.Messages.ToString();
+
+            //ChatRoom chatRoom = context.ChatRoom.Find(1);
+            //ViewBag.Message = chatRoom.Messages;
             return View();
         }
 
         public ActionResult Contact()
         {
             ChatRoomContext context = new ChatRoomContext();
-            User user = context.User.Find(2);
-            ViewBag.Message = user.GetType();
-
+            User user = context.User.Find(1);
+            Message message = new Message();
+            message.ChatRoom = context.ChatRoom.Find(1);
+            message.CreatedBy = context.User.Find(1);
+            context.Message.Add(message);
+            context.SaveChanges();
             return View();
         }
+
     }
 }

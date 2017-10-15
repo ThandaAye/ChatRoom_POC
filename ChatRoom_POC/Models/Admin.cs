@@ -12,6 +12,7 @@ namespace ChatRoom_POC.Models
         [EmailAddress]
         [Column]
         public string Email { get; set; }
+
         [Column]
         public UserStatus UserStatus { get; set; }
     }

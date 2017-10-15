@@ -12,9 +12,12 @@ namespace ChatRoom_POC.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ChatRoomID { get; set; }
-        [Column]
-        public int UserID { get; set; }
-        [ForeignKey("UserID")]
-        public User User { get; set; }
+
+        [Required]
+        public int OwnerID { get; set; }
+        [ForeignKey("OwnerID")]
+        public virtual User Owner { get; set; }
+
+        public virtual ICollection<Message> Messages { get; set; }
     }
 }
